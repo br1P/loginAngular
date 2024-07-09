@@ -1,0 +1,19 @@
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding-top: 20px;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  
+  .list-unstyled a {
+    text-decoration: none;
+  }
+  
+  .list-unstyled a:hover {
+    color: #007bff;
+  }
+  
