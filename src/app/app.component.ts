@@ -6,6 +6,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './auth/login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -14,7 +15,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FooterComponent,
     DashboardComponent,
     LoginComponent,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
