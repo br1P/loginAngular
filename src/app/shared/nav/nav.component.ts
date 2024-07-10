@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LoginService } from '../../services/auth/login.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,7 +10,19 @@ import { RouterModule } from '@angular/router';
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
-export class NavComponent {
+export class NavComponent implements OnInit, OnDestroy {
   userLoginOn: boolean=false;
+  constructor(private loginService:LoginService){}
+  ngOnDestroy(): void {
+    this.loginService.currentUserLoginOn.unsubscribe();
+  }
+  
+  ngOnInit(): void {
+    this.loginService.currentUserLoginOn.subscribe({
+      next:(userLoginOn) => {
+        this.userLoginOn=userLoginOn;
+      }
+    })
+  }
 
 }
