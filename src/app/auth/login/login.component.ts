@@ -12,6 +12,7 @@ import { LoginRequest } from '../../services/auth/loginRequest';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  loginError:string="";
   loginForm = this.formBuilder.group({
     email: ['bruno@gmail.com', [Validators.required, Validators.email]],
     password: ['', Validators.required],
@@ -35,6 +36,7 @@ export class LoginComponent {
         },
         error:(errorData) => {
           console.error(errorData);
+          this.loginError=errorData;
         },
         complete:() => {
           console.info("Login completo");
